@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
-import { List, Item, DeleteButton } from './ContactList.styled';
+import { List, Item, DeleteButton, Total } from './ContactList.styled';
 import { useSelector } from 'react-redux';
 import {
   useGetContactsQuery,
@@ -33,6 +33,7 @@ const ContactList = () => {
       {error && <Toaster />}
       {!error && contacts && (
         <List>
+          <Total>Total contacts : {FilContacts.length}</Total>
           {FilContacts.map(({ id, name, phone }) => (
             <Item key={id}>
               {name} : {phone}
